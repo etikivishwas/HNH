@@ -1,0 +1,34 @@
+    .scroll-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .scrolling-wrapper {
+      display: flex;
+      width: max-content;
+      animation: scrollRight 10s linear infinite;
+      gap: 1rem; 
+    }
+
+    .scrolling-wrapper:hover {
+      animation-play-state: paused;
+    }
+
+    .scrolling-track {
+      display: flex;
+      gap: 1rem; /* consistent gap here too */
+    }
+
+    .scrolling-wrapper .card {
+      min-width: 300px;
+      flex-shrink: 0;
+    }
+
+    @keyframes scrollRight {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
