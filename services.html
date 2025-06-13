@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services - HNH</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5 JS with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        overflow-x: hidden;
+      }
+
+      .navbar-brand img {
+        height: 60px;
+      }
+
+      
+
+      .key-services,
+      .additional-services {
+        padding: 1.5rem 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .polygon {
+        width: 300px;
+        height: 400px;
+        clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+        border-radius: 1rem;
+        background-color: #009640;
+        margin: 0 auto;
+      }
+
+      .scroll-section {
+        height: 100%;
+        position: relative;
+        margin: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .scroll-section img#roadPath {
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      .scroll-section-responsive {
+        display: none;
+      }
+
+      .scroll-section-responsive img#roadPath-responsive {
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      .car,
+      .car-responsive {
+        position: absolute;
+        transition: none;
+        z-index: 10;
+      }
+
+      #scrollPercentTab {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #343a40;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: bold;
+        z-index: 999;
+        font-size: 14px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .services-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+      }
+
+      .card-wrapper {
+        position: relative;
+        width: 280px;
+      }
+
+      .card-background {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 100%;
+        height: 100%;
+        background-color: #ffd600;
+        border-radius: 12px;
+        transform: rotate(3deg);
+        z-index: 0;
+      }
+
+      .service-card {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 20rem;
+      }
+
+      .card-top {
+        background-color: #d9d9d9;
+        height: 50%;
+      }
+
+      .card-content {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .service-title {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      .service-desc {
+        font-size: 0.92rem;
+        color: #333;
+      }
+
+      .additional-services-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        margin: 1.5rem 1rem;
+      }
+
+      .additional-card-wrapper {
+        position: relative;
+        width: 280px;
+      }
+
+      .additional-card-background {
+        position: absolute;
+        top: 10px;
+        left: -10px;
+        transform: rotate(-3deg) scaleY(-1);
+        width: 100%;
+        height: 100%;
+        background-color: #00994d;
+        border-radius: 12px;
+        z-index: 0;
+      }
+
+      .additional-service-card {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 20rem;
+      }
+
+      .additional-card-top {
+        background-color: #d9d9d9;
+        height: 50%;
+      }
+
+      .additional-card-content {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .additional-service-title {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      .additional-service-desc {
+        font-size: 0.92rem;
+        color: #333;
+      }
+      .hero-section {
+            position: relative;
+            height: 650px;
+        }
+
+        .hero-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 1;
+        }
+
+        .overlay-text {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+      @media (max-width: 768px) {
+        .additional-services-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .services-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .scroll-section-responsive {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .scroll-section {
+          display: none;
+        }
+        .hero-section {
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
+
+            .hero-img {
+                position: static;
+                height: auto;
+                object-fit: contain;
+            }
+
+            .overlay-text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: auto;
+            }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="./Images/HNH LOGO.png" alt="HNH Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./blog.html">Blog</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Brands</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          </ul>
+          <a href="#" class="btn btn-success btn-sm">Inquiry Now</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="position-relative text-white overflow-hidden hero-section d-flex flex-column align-items-center justify-content-center">
+        <img src="./Images/hero.png" alt="Hero"
+            class="hero-img" />
+        <div class="overlay-text">
+            <h1 class="display-5 fw-bold text-center">Blog</h1>
+        </div>
+    </section>
+
+    <!-- Key Services Section -->
+    <section class="key-services">
+      <h1 class="mb-5">Key Services</h1>
+
+      <div class="services-container">
+        <div class="card-wrapper">
+          <div class="card-background"></div>
+          <div class="service-card">
+            <div class="card-top"></div>
+            <div class="card-content">
+              <div class="service-title">Efficient Distribution Network</div>
+              <div class="service-desc">
+                We maintain a robust distribution network to ensure timely
+                deliveries to our clients in Uganda and neighboring countries.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="card-background"></div>
+          <div class="service-card">
+            <div class="card-top"></div>
+            <div class="card-content">
+              <div class="service-title">Customized Solutions</div>
+              <div class="service-desc">
+                We tailor distribution services to meet the unique needs of our
+                diverse clientele, ensuring efficient, personalized solutions
+                that foster long-term partnerships.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="card-background"></div>
+          <div class="service-card">
+            <div class="card-top"></div>
+            <div class="card-content">
+              <div class="service-title">Product Sourcing</div>
+              <div class="service-desc">
+                Our skilled team continuously sources new and trending FMCG
+                products, ensuring our clients stay ahead of market trends and
+                maintain a competitive edge.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="card-background"></div>
+          <div class="service-card">
+            <div class="card-top"></div>
+            <div class="card-content">
+              <div class="service-title">Inventory Management</div>
+              <div class="service-desc">
+                We assist clients in optimizing inventory levels, ensuring
+                cost-effectiveness and maximizing profitability through
+                efficient stock management strategies.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="additional-services">
+      <h2 class="mb-5">Additional Service</h2>
+
+      <div class="additional-services-container">
+        <div class="additional-card-wrapper">
+          <div class="additional-card-background"></div>
+          <div class="additional-service-card">
+            <div class="additional-card-top"></div>
+            <div class="additional-card-content">
+              <div class="additional-service-title">Quality Assurance</div>
+              <div class="additional-service-desc">
+                HNH International Distributions Ltd is committed to upholding
+                the highest standards of quality. Our products adhere to
+                industry certifications, ensuring our customers receive goods of
+                the utmost quality.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="additional-card-wrapper">
+          <div class="additional-card-background"></div>
+          <div class="additional-service-card">
+            <div class="additional-card-top"></div>
+            <div class="additional-card-content">
+              <div class="additional-service-title">Social Responsibility</div>
+              <div class="additional-service-desc">
+                As part of our commitment to social responsibility, HNH
+                International Distributors Ltd actively engages in initiatives
+                that positively impact the communities we serve.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="additional-card-wrapper">
+          <div class="additional-card-background"></div>
+          <div class="additional-service-card">
+            <div class="additional-card-top"></div>
+            <div class="additional-card-content">
+              <div class="additional-service-title">Geographical Presence</div>
+              <div class="additional-service-desc">
+                We proudly serve Uganda and neighboring countries, contributing
+                to the economic growth and development of the region through our
+                efficient distribution services.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Scrollable Road Path Section -->
+    <section class="scroll-section p-4">
+      <h1 class="mb-5">Sale Points</h1>
+      <img id="roadPath" src="./Images/path.png" alt="Road Path" />
+      <div class="car">
+        <img id="car" src="./Images/car.png" alt="Car" />
+      </div>
+    </section>
+
+    <!-- Scrollable Road Path Section (Responsive) -->
+    <section class="scroll-section-responsive p-4">
+      <h1 class="mb-5">Sale Points</h1>
+      <img
+        id="roadPath-responsive"
+        src="straight_path.svg"
+        alt="Road Path"
+      />
+      <div class="car-responsive">
+        <img
+          id="car-responsive"
+          src="./Images/car-rotated.png"
+          alt="Car"
+          width="28"
+        />
+      </div>
+    </section>
+
+    <!-- Floating scroll percentage tab -->
+    <div id="scrollPercentTab" style="display: none">Scroll: 0%</div>
+
+    <!-- JS Scroll Animation (unchanged logic, you can paste optimized logic here) -->
+
+    <section class="footer bg-success text-white pt-5">
+        <div class="container">
+            <div class="row align-items-start pb-4">
+                <div class="col-md-4 mb-4 d-flex flex-column align-items-md-start align-items-center text-center text-md-start">
+                    <img src="./Images/HNH LOGO.png" alt="Logo" class="mb-3" style="max-width: 150px;">
+                    <p class="mb-2" style="max-width: 250px;">
+                    Lorem ipsum dolor sit amet consectetur<br>adipiscing elit aliquam
+                    </p>
+                    <div class="social-icons mt-2">
+                    <a href="#" class="text-white me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3 fs-5"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white me-3 fs-5"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-white fs-5"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row d-none d-md-flex gx-4 gy-3 mt-3">
+                    <div class="col-md-4 text-start">
+                        <h6 class="fw-bold">Home</h6>
+                    </div>
+                    <div class="col-md-4 text-start">
+                        <h6 class="fw-bold">Service</h6>
+                    </div>
+                    <div class="col-md-4 text-start">
+                        <h6 class="fw-bold">Partner with Us</h6>
+                    </div>
+                    <div class="col-md-4 text-start">
+                        <h6 class="fw-bold">FAQ's</h6>
+                    </div>
+                    <div class="col-md-4 text-start">
+                        <h6 class="fw-bold">Contact Us</h6>
+                    </div>
+                    <div class="col-md-4 text-start">
+                        <h6 class="fw-bold">Career</h6>
+                    </div>
+                    </div>
+                    <div class="d-flex flex-column align-items-center d-md-none mt-3">
+                    <h6 class="fw-bold mb-2">Home</h6>
+                    <h6 class="fw-bold mb-2">Service</h6>
+                    <h6 class="fw-bold mb-2">Partner with Us</h6>
+                    <h6 class="fw-bold mb-2">FAQ's</h6>
+                    <h6 class="fw-bold mb-2">Contact Us</h6>
+                    <h6 class="fw-bold mb-2">Career</h6>
+                    </div>
+                </div>
+                </div>
+
+                <hr class="text-white opacity-50">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pb-3 text-center text-md-start">
+                <p class="mb-2 mb-md-0">Copyright © 2024 UtilStop</p>
+                <div>
+                    <a href="#" class="text-warning me-3 text-decoration-none">Terms and Conditions</a>
+                    <a href="#" class="text-warning me-3 text-decoration-none">Privacy Policy</a>
+                    <a href="#" class="text-warning text-decoration-none">Return Policy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+  </body>
+
+  <script>
+    const car = document.querySelector(".car");
+    const scrollTab = document.getElementById("scrollPercentTab");
+
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollY / docHeight;
+
+      const startScroll = 0.35;
+      const endScroll = 1;
+      const totalRange = endScroll - startScroll;
+      const segmentCount = 13;
+      const segmentSize = totalRange / segmentCount;
+
+      scrollTab.innerHTML = `Scroll: ${(scrollPercent * 100).toFixed(1)}%`;
+
+      if (scrollPercent < startScroll) {
+        car.style.top = "6%";
+        car.style.left = "77.5%";
+        car.style.transform = "rotate(0deg)";
+        return;
+      }
+
+      if (scrollPercent > endScroll) {
+        car.style.top = "92%";
+        car.style.left = "12.5%";
+        car.style.transform = "rotate(0deg)";
+        return;
+      }
+
+      const relativeScroll = (scrollPercent - startScroll) / totalRange;
+      const segmentIndex = Math.floor(relativeScroll * segmentCount);
+      const segmentProgress =
+        (relativeScroll % (1 / segmentCount)) * segmentCount;
+
+      switch (segmentIndex) {
+        case 0:
+          car.style.transform = "rotate(0deg)";
+          car.style.top = "6%";
+          car.style.left = `${77.5 - segmentProgress * 61.5}%`;
+          break;
+        case 1:
+          car.style.transform = "rotate(-90deg)";
+          car.style.left = "17%";
+          car.style.top = `${6 + segmentProgress * 15.5}%`;
+          break;
+        case 2:
+          car.style.transform = "rotate(180deg)";
+          car.style.top = "21.5%";
+          car.style.left = `${16 + segmentProgress * 59.5}%`;
+          break;
+        case 3:
+          car.style.transform = "rotate(-90deg)";
+          car.style.left = "75.5%";
+          car.style.top = `${21.5 + segmentProgress * 14.5}%`;
+          break;
+        case 4:
+          car.style.transform = "rotate(0deg)";
+          car.style.top = "36%";
+          car.style.left = `${75.5 - segmentProgress * 54}%`;
+          break;
+        case 5:
+          car.style.transform = "rotate(-90deg)";
+          car.style.left = "18.5%";
+          car.style.top = `${36 + segmentProgress * 14}%`;
+          break;
+        case 6:
+          car.style.transform = "rotate(180deg)";
+          car.style.top = "50%";
+          car.style.left = `${21.5 + segmentProgress * 61}%`;
+          break;
+        case 7:
+          car.style.transform = "rotate(-90deg)";
+          car.style.left = "74.5%";
+          car.style.top = `${50 + segmentProgress * 14}%`;
+          break;
+        case 8:
+          car.style.transform = "rotate(0deg)";
+          car.style.top = "65%";
+          car.style.left = `${82.5 - segmentProgress * 70}%`;
+          break;
+        case 9:
+          car.style.transform = "rotate(-90deg)";
+          car.style.left = "16.5%";
+          car.style.top = `${64 + segmentProgress * 14}%`;
+          break;
+        case 10:
+          car.style.transform = "rotate(180deg)";
+          car.style.top = "80%";
+          car.style.left = `${12.5 + segmentProgress * 70}%`;
+          break;
+        case 11:
+          car.style.transform = "rotate(-90deg)";
+          car.style.left = "73.5%";
+          car.style.top = `${78 + segmentProgress * 14}%`;
+          break;
+        case 12:
+          car.style.transform = "rotate(0deg)";
+          car.style.top = "94%";
+          car.style.left = `${82.5 - segmentProgress * 70}%`;
+          break;
+      }
+    });
+
+    // Responsive
+    const carResponsive = document.querySelector(".car-responsive");
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollY / docHeight;
+
+      scrollTab.innerHTML = `Scroll: ${(scrollPercent * 100).toFixed(1)}%`;
+
+      const startScroll = 0.78;
+      const endScroll = 1;
+      carResponsive.style.left = "45.5%"; // Start point
+
+      if (scrollPercent < startScroll) {
+        carResponsive.style.top = "10%"; // Start point
+        return;
+      }
+
+      if (scrollPercent > endScroll) {
+        carResponsive.style.top = "90%"; // End point
+        return;
+      }
+
+      // Normalized scroll progress between start and end
+      const progress =
+        (scrollPercent - startScroll) / (endScroll - startScroll);
+
+      // Set car position between 10% and 90%
+      const carTop = 10 + progress * 80;
+      carResponsive.style.top = `${carTop}%`;
+    });
+  </script>
+</html>
