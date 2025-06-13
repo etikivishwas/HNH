@@ -24,6 +24,7 @@
     }
 
     .stat-card {
+      background-color: #1716125d;
       color: white;
       border-radius: 20px;
       padding: 20px;
@@ -40,9 +41,10 @@
       margin-bottom: 10px;
     }
 
-    .stat-icon {
-      font-size: 80px;
-    }
+     .very-large-icon {
+    font-size: 80px; /* You can increase to 100px or more if needed */
+    color: #fff;     /* Optional: icon color */
+  }
 
 
   </style>
@@ -94,7 +96,7 @@
     <div class="container">
       <h5 class="fw-bold" style="font-size: 40px;">We are HNH International <span
           class="text-success">Distributions</span></h5>
-      <img src="./Images/Vector 2.png" />
+      <img src="./Images/Vector 2.png"  style="width: 321px;"/>
       <p style="font-family: Raleway; font-size: 30px;">
         At HNH International Distributions Ltd., we are not just distributors; we are partners in your success.
         With a focus on efficiency, quality, and customer satisfaction, we are your trusted choice for FMCG and beyond
@@ -102,60 +104,69 @@
       </p>
     </div>
   </section>
+  
+<section class="stats-section rounded py-5">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
 
-
-  <section class="stats-section rounded">
-    <div class="container">
-      <div class="row g-4 justify-content-center">
-
-        <!-- Stat 1 -->
-        <div class="col-md-6 col-12">
-          <div class="stat-card">
-            <div class="icon-number">
-              <i class="bi bi-people-fill stat-icon"></i>
-              <span>135</span>
-            </div>
-            <h3 class="stat-label text-white">Our supply in District</h3>
+      <!-- Stat 1 -->
+      <div class="col-12 col-md-6">
+        <div class="stat-card d-flex flex-column flex-sm-row align-items-center text-center text-sm-start p-3  text-white rounded">
+          <div class="icon-section pe-sm-3 me-sm-3 border-end-sm">
+            <i class="bi bi-people-fill very-large-icon d-block"></i>
+            <span class="fs-1 fw-bold">135</span>
+          </div>
+          <div class="label-section ps-sm-3 mt-3 mt-sm-0">
+            <h2 class="stat-label fs-2 mb-0">Our supply in District</h2>
           </div>
         </div>
-
-        <!-- Stat 2 -->
-        <div class="col-md-6 col-12">
-          <div class="stat-card">
-            <div class="icon-number">
-              <i class="bi bi-people-fill stat-icon"></i>
-              <span>25</span>
-            </div>
-
-            <h3 class="stat-label">Our Fleet</h3>
-          </div>
-        </div>
-
-        <!-- Stat 3 -->
-        <div class="col-md-6 col-12">
-          <div class="stat-card">
-            <div class="icon-number">
-              <i class="bi bi-people-fill stat-icon"></i>
-              <span>60</span>
-            </div>
-            <h3 class="stat-label">Our Employees</h3>
-          </div>
-        </div>
-
-        <!-- Stat 4 -->
-        <div class="col-md-6 col-12">
-          <div class="stat-card">
-            <div class="icon-number">
-              <i class="bi bi-people-fill stat-icon"></i>
-              <span>80%</span>
-            </div>
-            <h3 class="stat-label">Distribution coverage in Uganda</h3>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Stat 2 -->
+      <div class="col-12 col-md-6">
+        <div class="stat-card d-flex flex-column flex-sm-row align-items-center text-center text-sm-start p-3  text-white rounded">
+          <div class="icon-section pe-sm-3 me-sm-3 border-end-sm">
+            <i class="bi bi-truck very-large-icon d-block"></i>
+            <span class="fs-1 fw-bold">25</span>
+          </div>
+          <div class="label-section ps-sm-3 mt-3 mt-sm-0">
+            <h2 class="stat-label fs-2 mb-0">Our Fleet</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="col-12 col-md-6">
+        <div class="stat-card d-flex flex-column flex-sm-row align-items-center text-center text-sm-start p-3  text-white rounded">
+          <div class="icon-section pe-sm-3 me-sm-3 border-end-sm">
+            <i class="bi bi-person-workspace very-large-icon d-block"></i>
+            <span class="fs-1 fw-bold">60</span>
+          </div>
+          <div class="label-section ps-sm-3 mt-3 mt-sm-0">
+            <h1 class="stat-label fs-2 mb-0">Our Employees</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="col-12 col-md-6">
+        <div class="stat-card d-flex flex-column flex-sm-row align-items-center text-center text-sm-start p-3  text-white rounded">
+          <div class="icon-section pe-sm-3 me-sm-3 border-end-sm">
+            <i class="bi bi-globe-europe-africa very-large-icon d-block"></i>
+            <span class="fs-1 fw-bold">80%</span>
+          </div>
+          <div class="label-section ps-sm-3 mt-3 mt-sm-0">
+            <h2 class="stat-label fs-2 mb-0">Distribution coverage in Uganda</h2>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+
+
 
 
 
@@ -228,7 +239,6 @@
           </div>
         </div>
 
-        <!-- Track 2 (duplicate for seamless loop) -->
         <div class="scrolling-track">
           <div class="card shadow-sm">
             <div class="row g-0 align-items-center">
@@ -345,67 +355,99 @@
     </div>
   </section>
 
+ 
+    <footer class="footer bg-success text-white pt-5">
+        <div class="container">
+            <div class="row align-items-start pb-4">
+                <div
+                    class="col-md-4 mb-4 d-flex flex-column align-items-md-start align-items-center text-center text-md-start">
+                    <img src="./Images/fot-logo.png" alt="Logo" class="mb-3" style="max-width: 150px;">
+                    <p class="mb-2" style="max-width: 250px;">
+                        Lorem ipsum dolor sit amet consectetur<br>adipiscing elit aliquam
+                    </p>
+                    <div class="social-icons mt-2">
+                        <a href="#" class="text-white me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
 
-  <footer class="footer bg-success text-white pt-5">
-    <div class="container">
-      <div class="row align-items-start pb-4">
-        <div class="col-md-4 mb-4 d-flex flex-column align-items-md-start align-items-center text-center text-md-start">
-          <img src="./Images/fot-logo.png" alt="Logo" class="mb-3" style="max-width: 150px;">
-          <p class="mb-2" style="max-width: 250px;">
-            Lorem ipsum dolor sit amet consectetur<br>adipiscing elit aliquam
-          </p>
-          <div class="social-icons mt-2">
-            <a href="#" class="text-white me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white me-3 fs-5"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white me-3 fs-5"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white me-3 fs-5"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="text-white fs-5"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="row d-none d-md-flex gx-4 gy-3 mt-3">
-            <div class="col-md-4 text-start">
-              <h6 class="fw-bold">Home</h6>
-            </div>
-            <div class="col-md-4 text-start">
-              <h6 class="fw-bold">Service</h6>
-            </div>
-            <div class="col-md-4 text-start">
-              <h6 class="fw-bold">Partner with Us</h6>
-            </div>
-            <div class="col-md-4 text-start">
-              <h6 class="fw-bold">FAQ's</h6>
-            </div>
-            <div class="col-md-4 text-start">
-              <h6 class="fw-bold">Contact Us</h6>
-            </div>
-            <div class="col-md-4 text-start">
-              <h6 class="fw-bold">Career</h6>
-            </div>
-          </div>
-          <div class="d-flex flex-column align-items-center d-md-none mt-3">
-            <h6 class="fw-bold mb-2">Home</h6>
-            <h6 class="fw-bold mb-2">Service</h6>
-            <h6 class="fw-bold mb-2">Partner with Us</h6>
-            <h6 class="fw-bold mb-2">FAQ's</h6>
-            <h6 class="fw-bold mb-2">Contact Us</h6>
-            <h6 class="fw-bold mb-2">Career</h6>
-          </div>
-        </div>
-      </div>
+                <div class="col-md-8">
+                    <!-- Desktop view -->
+                    <div class="row d-none d-md-flex gx-4 gy-3 mt-3">
+                        <div class="col-md-4 text-start">
+                            <a href="#" class="text-white text-decoration-none">
+                                <h6 class="fw-bold mb-0">Home</h6>
+                            </a>
+                        </div>
+                        <div class="col-md-4 text-start">
+                            <a href="#" class="text-white text-decoration-none">
+                                <h6 class="fw-bold mb-0">Services</h6>
+                            </a>
+                        </div>
 
-      <hr class="text-white opacity-50">
-      <div
-        class="d-flex flex-column flex-md-row justify-content-between align-items-center pb-3 text-center text-md-start">
-        <p class="mb-2 mb-md-0">Copyright © 2024 UtilStop</p>
-        <div>
-          <a href="#" class="text-warning me-3 text-decoration-none">Terms and Conditions</a>
-          <a href="#" class="text-warning me-3 text-decoration-none">Privacy Policy</a>
-          <a href="#" class="text-warning text-decoration-none">Return Policy</a>
+               <div class="col-md-4 text-start">
+                            <a href="./blog.html" class="text-white text-decoration-none">
+                                <h6 class="fw-bold mb-0">Blog</h6>
+                            </a>
+                        </div>
+                        <div class="col-md-4 text-start">
+                            <a href="./about.html" class="text-white text-decoration-none">
+                                <h6 class="fw-bold mb-0">About Us</h6>
+                            </a>
+                        </div>
+
+                    
+                        <div class="col-md-4 text-start">
+                            <a href="#" class="text-white text-decoration-none">
+                                <h6 class="fw-bold mb-0">Brands</h6>
+                            </a>
+                        </div>
+                           <div class="col-md-4 text-start">
+                            <a href="./contact.html" class="text-white text-decoration-none">
+                                <h6 class="fw-bold mb-0">Contact Us</h6>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile view -->
+                    <div class="d-flex flex-column align-items-center d-md-none mt-3">
+                        <a href="#" class="text-white text-decoration-none">
+                            <h6 class="fw-bold mb-2">Home</h6>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <h6 class="fw-bold mb-2">Service</h6>
+                        </a>
+                        <a href="./blog.html" class="text-white text-decoration-none">
+                            <h6 class="fw-bold mb-2">Blog</h6>
+                        </a>
+                        <a href="./about.html" class="text-white text-decoration-none">
+                            <h6 class="fw-bold mb-2">About us</h6>
+                        </a>
+                        <a href="./brands.html" class="text-white text-decoration-none">
+                            <h6 class="fw-bold mb-2">Brands</h6>
+                        </a>
+                        <a href="./contact.html" class="text-white text-decoration-none">
+                            <h6 class="fw-bold mb-2">Contact Us</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="text-white opacity-50">
+            <div
+                class="d-flex flex-column flex-md-row justify-content-between align-items-center pb-3 text-center text-md-start">
+                <p class="mb-2 mb-md-0">Copyright © 2024 UtilStop</p>
+                <div>
+                    <a href="#" class="text-warning me-3 text-decoration-none">Terms and Conditions</a>
+                    <a href="#" class="text-warning me-3 text-decoration-none">Privacy Policy</a>
+                    <a href="#" class="text-warning text-decoration-none">Return Policy</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
 
 
